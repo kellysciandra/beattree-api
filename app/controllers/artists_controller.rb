@@ -1,29 +1,43 @@
 class ArtistsController < ApplicationController
     def index 
         @artists = Artist.all
-        render json: @artists
-    end 
-
-    def new 
-        @artist = Artist.new 
+        if @artists
+            render json: {
+                artists: @artists, except => [:created_at, :updated_at]
+            }
+        else 
+            render json: {
+                status: 500
+            }
+         end
     end 
 
     def show
-        @artist = Artist.find_by(id: params[:id])
+        @artist = Artist.find_by(params[:id])
         if @artist 
-            render json: @artist, except: [:created_at, :updated_at]
+            render json:{
+                artist: @artist, except => [:created_at, :updated_at]
+            }
         else 
-            render json: {message: 'artist not found'}
+            render json: {
+                status: 500
+            }
         end
     end
 
     def create 
-        @artist = Artist.new(artist_params)
+        @artist = Artist.create(artist_params)
         if @artist.save
-            login!
-            render json: @artist, except: [:created_at, :updated_at]
+            session[:artist_id] = @artist.id
+  
+            render json:{
+                status: :created,
+                artist: @artist, :except => [:created_at, :updated_at]
+            }
         else 
-            render json: {message: 'artist not found'}
+            render json: {
+                status: 500
+            }
         end
     end 
 

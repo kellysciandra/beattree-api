@@ -1,12 +1,21 @@
 class BeatsController < ApplicationController
-   
+    include Rails.application.routes.url_helpers
 
     # GET /beats
     # GET /beats.json
     def index
         @beats = Beat.all
-        render json: @beats
+        render json: {beats: @beats}, include: :file
     end 
+
+    def show 
+        beat = Beat.find_by(id: params[:id])
+        if beat.present?
+            render json: beat.file
+        else
+            head :not_found
+        end 
+    end
 
     # POST /beats
     #POST /beats.json
@@ -19,7 +28,8 @@ class BeatsController < ApplicationController
  
     private 
 
+
     def beat_params
-        params.permit(:file, :title)
+        params.permit(:title, :file)
     end
 end

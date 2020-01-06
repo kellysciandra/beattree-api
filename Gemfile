@@ -26,6 +26,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'rack-cors'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'bcrypt'
+gem 'sass-rails', '~> 5.0'
+gem 'devise'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -34,6 +38,7 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

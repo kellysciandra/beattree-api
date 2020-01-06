@@ -12,4 +12,4 @@ Artist.create(name: 'kelly', email: 'kellysciandra@icloud.com', city: 'brooklyn'
 Producer.create(name: 'producer kelly', email: 'producer kellysciandra@icloud.com', city: 'new york', state: 'ny')
 
 
-Beat.create(title: 'first beat')
+# Beat.create(title: 'first beat')
