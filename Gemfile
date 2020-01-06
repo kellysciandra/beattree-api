@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
-gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", "~> 5.2.0"
 gem 'bcrypt'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
