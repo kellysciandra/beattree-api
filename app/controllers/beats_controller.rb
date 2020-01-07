@@ -4,8 +4,7 @@ class BeatsController < ApplicationController
     # GET /beats
     # GET /beats.json
     def index
-        @beats = Beat.all
-        render json: {beats: @beats}, include: :file
+        render json: Beat.all.with_attached_image
     end 
 
     def show 
@@ -20,9 +19,11 @@ class BeatsController < ApplicationController
     # POST /beats
     #POST /beats.json
     def create
-        beat = Beat.new(beat_params)
-        if beat.save 
-            render json: {message: 'it worked'}
+        @beat = Beat.create!(beat_params)
+        if @beat.save 
+            render json: {beat: @beat}
+        else
+            render json: {message: 'nope'}
         end 
     end
  
@@ -30,6 +31,6 @@ class BeatsController < ApplicationController
 
 
     def beat_params
-        params.permit(:title, :file)
+        params.permit(:title, :file, :artist_id)
     end
 end
