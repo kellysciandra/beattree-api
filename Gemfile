@@ -28,6 +28,7 @@ gem "paperclip", "~> 5.0.0.beta1"
 gem 'bcrypt'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
+gem 'active_model_serializers'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

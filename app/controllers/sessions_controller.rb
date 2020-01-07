@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
           logged_in: true,
           artist: @artist
         }
-        byebug
       else
         render json: { 
           status: 401,
@@ -18,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def artist_logged_in?
-      if logged_in? && @current_artist
+      if logged_in? && current_artist
         render json: {
           logged_in: true,
           artist: @current_artist
