@@ -4,7 +4,8 @@ class BeatsController < ApplicationController
     # GET /beats
     # GET /beats.json
     def index
-        render json: Beat.all.with_attached_image
+        @beats = Beat.last.file_on_disk
+        render json: {beats: @beats}, include: :file
     end 
 
     def show 

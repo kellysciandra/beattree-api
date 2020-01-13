@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
         @artists = Artist.all
         if @artists
             render json: {
-                artists: @artists, except => [:created_at, :updated_at]
+                artists: @artists
             }
         else 
             render json: {
@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
         @artist = Artist.find_by(params[:id])
         if @artist 
             render json:{
-                artist: @artist, except => [:created_at, :updated_at]
+                artist: @artist
             }
         else 
             render json: {
@@ -29,13 +29,14 @@ class ArtistsController < ApplicationController
         @artist = Artist.create(artist_params)
         if @artist.save
             session[:artist_id] = @artist.id
-  
             render json:{
                 status: :created,
-                artist: @artist, :except => [:created_at, :updated_at]
+                artist: @artist
             }
+
         else 
             render json: {
+                artist: @artist,
                 status: 500
             }
         end
