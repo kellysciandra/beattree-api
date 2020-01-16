@@ -42,10 +42,27 @@ class ArtistsController < ApplicationController
         end
     end 
 
+    def update 
+        @artist = Artist.find_by(artist_params)
+        if @artist
+            session[:artist_id] = @artist.id
+            render json:{
+                status: :updated,
+                artist: @artist
+            }
+
+        else 
+            render json: {
+                artist: @artist,
+                status: 500
+            }
+        end
+    end 
+
     private 
 
     def artist_params 
-        params.require(:artist).permit(:email, :password, :city, :state)
+        params.require(:artist).permit(:email, :password, :city, :state, :link)
     end 
 
 end

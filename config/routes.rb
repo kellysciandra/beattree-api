@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
     resources :beats
     resources :sessions, only: [:create]
-    resources :artists, only: [:create, :show, :index]
+    resources :artists, only: [:create, :show, :index, :update]
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: "sessions#destroy"
