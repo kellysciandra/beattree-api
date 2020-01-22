@@ -2,7 +2,8 @@ Rails.application.routes.draw do
     resources :beats
     resources :favorites
     resources :sessions, only: [:create]
-    resources :artists, only: [:create, :show, :index, :update]
+    resources :artists
+    resources :messages
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: "sessions#destroy"

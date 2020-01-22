@@ -17,10 +17,14 @@ class SessionsController < ApplicationController
   end
 
   def artist_logged_in?
+    @favorites = current_artist.favorites
+    @messages = current_artist.messages
       if logged_in? && current_artist
         render json: {
           logged_in: true,
-          artist: @current_artist
+          artist: @current_artist,
+          favorites: @favorites,
+          messages: @messages
         }
       else
         render json: {

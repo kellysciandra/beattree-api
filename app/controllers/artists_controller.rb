@@ -43,14 +43,13 @@ class ArtistsController < ApplicationController
     end 
 
     def update 
-        @artist = Artist.find_by(artist_params)
-        if @artist
-            session[:artist_id] = @artist.id
+        @artist = current_artist
+        @artist.update(artist_params)
+        if @artist.save
             render json:{
                 status: :updated,
-                artist: @artist
+                artist: @artist.link
             }
-
         else 
             render json: {
                 artist: @artist,
