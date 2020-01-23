@@ -37,7 +37,8 @@ class ArtistsController < ApplicationController
         else 
             render json: {
                 artist: @artist,
-                status: 500
+                status: 500,
+                errors: @artist.errors
             }
         end
     end 

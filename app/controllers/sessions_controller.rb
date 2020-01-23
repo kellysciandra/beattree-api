@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
     end
   end
 
+
   def artist_logged_in?
     @favorites = current_artist.favorites
     @messages = current_artist.messages
@@ -48,3 +49,10 @@ class SessionsController < ApplicationController
   end
 
 end
+
+
+
+
+
+
+
