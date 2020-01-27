@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     end
 
     def create
-           
            @messages = Message.create!(messages_params)
            if @messages.save
            render json: {
@@ -22,22 +21,6 @@ class MessagesController < ApplicationController
             }
         end
     end
-
-
-    # def show
-    #     @sender.id = current_artist.id
-    #     @messages = Message.find_by(@sender.id)
-    #     if @messages
-    #         render json:{
-    #             messages: @messages
-    #         }
-    #     else 
-    #         render json: {
-    #             status: 500
-    #         }
-    #     end
-    # end
-
 
     private
 

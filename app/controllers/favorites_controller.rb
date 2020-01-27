@@ -37,9 +37,8 @@ class FavoritesController < ApplicationController
         end
     end
 
-
     private
-
+    
     def favorites_params
         params.permit(:artist_id, :favorite_artist_id, :link)
     end 

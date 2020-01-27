@@ -33,7 +33,6 @@ class ArtistsController < ApplicationController
                 status: :created,
                 artist: @artist
             }
-
         else 
             render json: {
                 artist: @artist,
