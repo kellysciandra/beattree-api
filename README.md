@@ -1,24 +1,31 @@
-# README
+Beattree
+Note: This is the back end API of Beattree.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app allows you to create a profile and link your SoundCloud.  Producers and artist can connect and leave comments if they're interested in working together.   
 
-Things you may want to cover:
+Getting Started
+Download or clone this repository.
 
-* Ruby version
+In the new directory, you will need to install dependencies included in the Gemfile.
 
-* System dependencies
+bundle install
+From within the beattree-api directory, migrate your database
 
-* Configuration
+rails db:migrate
+then run a local server on localhost:3000
 
-* Database creation
+rails s
+To complete set-up, download or clone the front end / beattree repository and follow the Getting Started instructions from the Readme located in that repository.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built Using
+React.js, 16.12.0
+React Router, 5.1.2
+React-Redux, 7.1.3
+Redux Thunk, 2.3.0
+React Sound, 1.2.0
+React Bootstrap, 1.0.0-beta.16
+Rails, 6.0.2
+Font Awesome
+Google Fonts
+Contributor
+Kelly Sciandra, graduate of Flatiron School (https://github.com/kellysciadra)
